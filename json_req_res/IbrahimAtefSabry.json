@@ -80,7 +80,6 @@
           },
           "body":{
              "taskId":"id",
-             "boardId":"id",
              "description":"string"
           },
           "responses":[
@@ -111,8 +110,7 @@
              "Content-Type":"application/json",
              "Authorization":"Token"
           },
-          "body":{
-             "taskId":"id",
+          "body":{             
              "boardId":"id",
              "description":"string"
           },
