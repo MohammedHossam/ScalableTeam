@@ -1,0 +1,38 @@
+{
+  "_commentChat": "Chats contains only meta info about each conversation stored under the chats's unique ID",
+  "chats": {
+    "chatID1": {
+      "title": "name of the sender or ca we chnage the chat name",
+      "lastMessage": "last message contant",
+      "timestamp": 1459361875666
+    },
+    "chatID2": {},
+    "chatID3": {}
+  },
+  "_commentMessage": "messages contains real info about each conversation stored under the message's unique ID",
+  "messages": {
+    "chatID1": {
+      "messageID1": {
+        "name": "sender name",
+        "message": "message contant",
+        "mediaUrl": "media Url",
+        "timestamp": 1459361875337
+      },
+      "messageID2": {},
+      "messageID3": {}
+    },
+    "chatID2": {},
+    "chatID3": {}
+  },
+  "usersChats": {
+    "userID1": {
+      "chatID1": "chatID1",
+      "chatID2": "chatID2",
+      "chatID3": "chatID3"
+    },
+    "userID2": {
+      "chatID1": "chatID2",
+      "chatID2": "chatID3"
+    }
+  }
+}
