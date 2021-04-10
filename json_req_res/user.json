@@ -137,8 +137,7 @@
       "body": {
         "id": "",
         "collaboratorId": "",
-        "boardId": "",
-        "boardOwner": ""
+        "boardId": ""
       },
       "headers": {
         "key": "Authentication",
