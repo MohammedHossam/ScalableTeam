@@ -4,22 +4,12 @@
       "title": "Sort Tasks in a board",
       "description": "Sorting tasks depending on a certain key",
       "method": "Get",
-      "URL": "/api/board/tasks/sort",
+      "URL": "/api/board/tasks/sort/:boardID?sortingBy=value",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
       },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Boards"
-        },
-        "sortingBy": {
-          "type": "Enum",
-          "value": "String"
-        }
-      },
+      "body": {},
       "responses": [
         {
           "status": 200,
@@ -48,27 +38,16 @@
         }
       ]
     },
-
     {
       "title": "Sort Tasks in a todo list",
       "description": "Sorting tasks depending on a certain key",
       "method": "Get",
-      "URL": "/api/todolist/tasks/sort",
+      "URL": "/api/todolist/tasks/sort/:todolistID?sortingBy=value",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
       },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/ToDoList"
-        },
-        "sortingBy": {
-          "type": "Enum",
-          "value": "String"
-        }
-      },
+      "body": {},
       "responses": [
         {
           "status": 200,
@@ -128,7 +107,7 @@
       },
       "responses": [
         {
-          "status": 200,
+          "status": 201,
           "descripition": "OK",
           "schema": {
             "type": "Object",
@@ -156,18 +135,12 @@
       "title": "Get all chats",
       "description": "getting all the chats for the logged in user",
       "method": "Get",
-      "URL": "/api/Chats",
+      "URL": "/api/Chats/:userID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
       },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/User"
-        }
-      },
+      "body": {},
       "responses": [
         {
           "status": 200,
@@ -200,23 +173,12 @@
       "title": "Open a chat",
       "description": "getting one chat for the logged in user",
       "method": "Get",
-      "URL": "/api/Chats",
+      "URL": "/api/Chats/:userID/:chatID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
       },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/User"
-        },
-        "chatId": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Chat"
-        }
-      },
+      "body": {},
       "responses": [
         {
           "status": 200,
@@ -249,23 +211,12 @@
       "title": "Delete a chat",
       "description": "deleting one chat for the logged in user",
       "method": "Delete",
-      "URL": "/api/Chats",
+      "URL": "/api/Chats/:userID/:chatID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
       },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/User"
-        },
-        "chatId": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Chat"
-        }
-      },
+      "body": {},
       "responses": [
         {
           "status": 200,
@@ -317,7 +268,7 @@
       },
       "responses": [
         {
-          "status": 200,
+          "status": 201,
           "descripition": "OK",
           "schema": {
             "type": "Object",
@@ -416,7 +367,7 @@
       },
       "responses": [
         {
-          "status": 200,
+          "status": 201,
           "descripition": "OK",
           "schema": {
             "type": "Object",
@@ -444,18 +395,12 @@
       "title": "Getting all notifications",
       "description": "retrieving all notification for a user",
       "method": "Get",
-      "URL": "/api/userNotifications",
+      "URL": "/api/userNotifications/:userID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
       },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/User"
-        }
-      },
+      "body": {},
       "responses": [
         {
           "status": 200,
