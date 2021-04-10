@@ -1,0 +1,20 @@
+{
+  "_comment": "usersNotification contains info about each user's notification stored under the user's unique ID",
+  "usersNotification": {
+    "userID1": {
+      "notificationID1": {
+        "title": "title of notification",
+        "body": "info about the notification",
+        "clickAction": "Action will be taken when this notification is pressed",
+        "icon": "icon of notification",
+        "timestamp": 1459361875666
+      },
+      "notificationID2": {},
+      "notificationID3": {}
+    },
+    "userID2": {
+      "notificationID1": {},
+      "notificationID2": {}
+    }
+  }
+}
