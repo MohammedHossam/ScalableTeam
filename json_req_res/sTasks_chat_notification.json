@@ -1,136 +1,6 @@
 {
   "APIs": [
-    {
-      "title": "Sort Tasks in a board",
-      "description": "Sorting tasks depending on a certain key",
-      "method": "Get",
-      "URL": "/api/board/tasks/sort/:boardID?sortingBy=value",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Token"
-      },
-      "body": {},
-      "responses": [
-        {
-          "status": 200,
-          "descripition": "OK",
-          "schema": {
-            "type": "Array",
-            "items": [
-              {
-                "type": "Object",
-                "ref": "Collections/Tasks"
-              }
-            ]
-          }
-        },
-        {
-          "status": 401,
-          "descripition": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "descripition": "Forbidden"
-        },
-        {
-          "status": 404,
-          "descripition": "Not Found"
-        }
-      ]
-    },
-    {
-      "title": "Sort Tasks in a todo list",
-      "description": "Sorting tasks depending on a certain key",
-      "method": "Get",
-      "URL": "/api/todolist/tasks/sort/:todolistID?sortingBy=value",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Token"
-      },
-      "body": {},
-      "responses": [
-        {
-          "status": 200,
-          "descripition": "OK",
-          "schema": {
-            "type": "Array",
-            "items": [
-              {
-                "type": "Object",
-                "ref": "Collections/Tasks"
-              }
-            ]
-          }
-        },
-        {
-          "status": 401,
-          "descripition": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "descripition": "Forbidden"
-        },
-        {
-          "status": 404,
-          "descripition": "Not Found"
-        }
-      ]
-    },
-    {
-      "title": "Upload media to board",
-      "description": "Uploading media to board",
-      "method": "POST",
-      "URL": "/api/Board/Media/Upload",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Token"
-      },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Board"
-        },
-        "media": {
-          "type": "multipart/form-data",
-          "value": "media encoded"
-        },
-        "uploadedById": {
-          "type": "String",
-          "value": "id of user that uploaded",
-          "ref": "Collections/UserInfo"
-        },
-        "timeStamp": {
-          "type": "String",
-          "format": "date-time"
-        }
-      },
-      "responses": [
-        {
-          "status": 201,
-          "descripition": "OK",
-          "schema": {
-            "type": "Object",
-            "items": {
-              "type": "String",
-              "value": "Uploaded media url"
-            }
-          }
-        },
-        {
-          "status": 401,
-          "descripition": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "descripition": "Forbidden"
-        },
-        {
-          "status": 404,
-          "descripition": "Not Found"
-        }
-      ]
-    },
+    
     {
       "title": "Get all chats",
       "description": "getting all the chats for the logged in user",
@@ -419,5 +289,325 @@
         }
       ]
     }
+    ,
+    {
+      "title":"Assign task to collaborator",
+      "description":"Assigning task to collaborator",
+      "method":"Post",
+      "URL":"/api/tasks/assign",
+      "headers":{
+         "Content-Type":"application/json",
+         "Authorization":"Token"
+      },
+      "body":{
+         "assigneeId":"id",
+         "taskId":"id"
+      },
+      "responses":[
+         {
+            "status":200,
+            "descripition":"OK"
+         },
+         {
+            "status":401,
+            "descripition":"Unauthorized"
+         },
+         {
+            "status":403,
+            "descripition":"Forbidden"
+         },
+         {
+            "status":404,
+            "descripition":"Not Found"
+         }
+      ]
+   },
+   {
+      "title":"Search for Task",
+      "description":"Searching for Task across all boards and lists",
+      "method":"Get",
+      "URL":"/api/tasks/search?query=description",
+      "headers":{
+         "Content-Type":"application/json",
+         "Authorization":"Token"
+      },
+      "responses":[
+         {
+            "status":200,
+            "descripition":"OK",
+            "schema":{
+               "type":"Array",
+               "items":[
+                  {
+                     "type":"Object",
+                     "ref":"Collections/Tasks"
+                  }
+               ]
+            }
+         },
+         {
+            "status":401,
+            "descripition":"Unauthorized"
+         },
+         {
+            "status":403,
+            "descripition":"Forbidden"
+         },
+         {
+            "status":404,
+            "descripition":"Not Found"
+         }
+      ]
+   },
+   {
+      "title":"Add task comment",
+      "description":"Adding comment to task",
+      "method":"Post",
+      "URL":"/api/task/comment",
+      "headers":{
+         "Content-Type":"application/json",
+         "Authorization":"Token"
+      },
+      "body":{
+         "taskId":"id",
+         "description":"string"
+      },
+      "responses":[
+         {
+            "status":200,
+            "descripition":"OK"
+         },
+         {
+            "status":401,
+            "descripition":"Unauthorized"
+         },
+         {
+            "status":403,
+            "descripition":"Forbidden"
+         },
+         {
+            "status":404,
+            "descripition":"Not Found"
+         }
+      ]
+   },
+   {
+      "title":"Add board comment",
+      "description":"Adding comment to board ",
+      "method":"Post",
+      "URL":"/api/board/comments",
+      "headers":{
+         "Content-Type":"application/json",
+         "Authorization":"Token"
+      },
+      "body":{             
+         "boardId":"id",
+         "description":"string"
+      },
+      "responses":[
+         {
+            "status":200,
+            "descripition":"OK"
+         },
+         {
+            "status":401,
+            "descripition":"Unauthorized"
+         },
+         {
+            "status":403,
+            "descripition":"Forbidden"
+         },
+         {
+            "status":404,
+            "descripition":"Not Found"
+         }
+      ]
+   },
+   {
+      "title":"View tasks deadline",
+      "description":"Viewing upcoming tasks deadline",
+      "method":"Get",
+      "URL":"/api/upcomingtasks",
+      "headers":{
+         "Content-Type":"application/json",
+         "Authorization":"Token"
+      },
+      "body":{
+         
+      },
+      "responses":[
+         {
+            "status":200,
+            "descripition":"OK",
+            "schema":{
+               "type":"Array",
+               "items":[
+                  {
+                     "type":"Object",
+                     "ref":"Collections/Tasks"
+                  }
+               ]
+            }
+         },
+         {
+            "status":401,
+            "descripition":"Unauthorized"
+         },
+         {
+            "status":403,
+            "descripition":"Forbidden"
+         },
+         {
+            "status":404,
+            "descripition":"Not Found"
+         }
+      ]
+   },
+   {
+      "title":"Assign Name to Board",
+      "description":"User assigns name to one of his boards",
+      "method":"Put",
+      "URL":"api/board/assignName/:boardId",
+      "headers":{
+         "Content-Type":"application/json",
+         "Authorization":"Token"
+      },
+      "body":{
+         "Name":"value"
+      },
+      "responses":[
+         {
+            "status":200,
+            "descripition":"OK",
+            "data":{
+               "_id":"value",
+               "Name":"value",
+               "Description":"value"
+            }
+         },
+         {
+            "status":401,
+            "descripition":"Unauthorized"
+         },
+         {
+            "status":403,
+            "descripition":"Forbidden"
+         },
+         {
+            "status":404,
+            "descripition":"Not Found"
+         }
+      ]
+   },
+   {
+      "title":"Assign Name to TodoList",
+      "description":"User assigns name to one of his TodoLists",
+      "method":"Put",
+      "URL":"api/todolist/assignName/:listId",
+      "headers":{
+         "Content-Type":"application/json",
+         "Authorization":"Token"
+      },
+      "body":{
+         "Name":"value"
+      },
+      "responses":[
+         {
+            "status":200,
+            "descripition":"OK",
+            "data":{
+               "_id":"value",
+               "Name":"value",
+               "Description":"value"
+            }
+         },
+         {
+            "status":401,
+            "descripition":"Unauthorized"
+         },
+         {
+            "status":403,
+            "descripition":"Forbidden"
+         },
+         {
+            "status":404,
+            "descripition":"Not Found"
+         }
+      ]
+   },
+   {
+      "title":"Search for todolist by name",
+      "description":"User searches for a todolist(s) by its name",
+      "method":"Get",
+      "URL":"api/todolist?Name=value",
+      "headers":{
+         "Content-Type":"application/json",
+         "Authorization":"Token"
+      },
+      "responses":[
+         {
+            "status":200,
+            "descripition":"OK",
+            "data":{
+               "type":"Array",
+               "items":[
+                  {
+                     "type":"Object",
+                     "ref":"Collections/Todolists"
+                  }
+               ]
+            }
+         },
+         {
+            "status":401,
+            "descripition":"Unauthorized"
+         },
+         {
+            "status":403,
+            "descripition":"Forbidden"
+         },
+         {
+            "status":404,
+            "descripition":"Not Found"
+         }
+      ]
+   },
+   {
+      "title":"Search for board by name",
+      "description":"User searches for a board by its name",
+      "method":"Get",
+      "URL":"api/board?Name=value",
+      "headers":{
+         "Content-Type":"application/json",
+         "Authorization":"Token"
+      },
+      "responses":[
+         {
+            "status":200,
+            "descripition":"OK",
+            "data":{
+               "type":"Array",
+               "items":[
+                  {
+                     "type":"Object",
+                     "ref":"Collections/Boards"
+                  }
+               ]
+            }
+         },
+         {
+            "status":401,
+            "descripition":"Unauthorized"
+         },
+         {
+            "status":403,
+            "descripition":"Forbidden"
+         },
+         {
+            "status":404,
+            "descripition":"Not Found"
+         }
+      ]
+   }
   ]
 }
