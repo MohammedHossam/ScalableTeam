@@ -57,7 +57,7 @@
         "id": ""
       },
       "headers": {
-        "key": "",
+        "key": "Authentication",
         "value": "token"
       },
       "successResponse": {
@@ -75,11 +75,10 @@
         "username": "",
         "name": "",
         "phoneNumber": "",
-        "email": "",
-        "password": ""
+        "email": ""
       },
       "headers": {
-        "key": "",
+        "key": "Authentication",
         "value": "token"
       },
       "successResponse": {
@@ -99,7 +98,7 @@
         "newPassword": ""
       },
       "headers": {
-        "key": "",
+        "key": "Authentication",
         "value": "token"
       },
       "successResponse": {
@@ -115,11 +114,34 @@
       "method": "POST",
       "body": {
         "id": "",
-        "usernameToBeBlocked": "",
-        "report": ""
+        "idToBeReported": "",
+        "report": "",
+        "boardId": "",
+        "boardOwner": ""
       },
       "headers": {
-        "key": "",
+        "key": "Authentication",
+        "value": "token"
+      },
+      "successResponse": {
+        "statusCode": 200
+      },
+      "errorResponse": {
+        "statusCode": "",
+        "error": ""
+      }
+    },
+    {
+      "serviceName": "blockUsers",
+      "method": "POST",
+      "body": {
+        "id": "",
+        "collaboratorId": "",
+        "boardId": "",
+        "boardOwner": ""
+      },
+      "headers": {
+        "key": "Authentication",
         "value": "token"
       },
       "successResponse": {
