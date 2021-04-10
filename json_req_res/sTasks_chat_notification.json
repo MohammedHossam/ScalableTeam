@@ -297,22 +297,12 @@
       "title": "Send a message",
       "description": "sending one message in the opened chat",
       "method": "PUT",
-      "URL": "/api/Chats",
+      "URL": "/api/Chats/:userID/:chatID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
       },
       "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/User"
-        },
-        "chatId": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Chat"
-        },
         "message": {
           "type": "Object",
           "value": "the contents of the message"
