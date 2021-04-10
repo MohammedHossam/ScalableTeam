@@ -5,7 +5,7 @@
       "title": "Get all chats",
       "description": "getting all the chats for the logged in user",
       "method": "Get",
-      "URL": "/api/Chats/:userID",
+      "URL": "/api/chats/GetChats/:userID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
@@ -43,7 +43,7 @@
       "title": "Open a chat",
       "description": "getting one chat for the logged in user",
       "method": "Get",
-      "URL": "/api/Chats/:userID/:chatID",
+      "URL": "/api/chats/GetChat/:userID/:chatID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
@@ -81,7 +81,7 @@
       "title": "Delete a chat",
       "description": "deleting one chat for the logged in user",
       "method": "Delete",
-      "URL": "/api/Chats/:userID/:chatID",
+      "URL": "/api/chats/DeleteChat/:userID/:chatID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
@@ -119,7 +119,7 @@
       "title": "Create a chat",
       "description": "Opening a new chat for the logged in user with another user",
       "method": "POST",
-      "URL": "/api/Chats",
+      "URL": "/api/chats/CreateChat",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
@@ -167,7 +167,7 @@
       "title": "Send a message",
       "description": "sending one message in the opened chat",
       "method": "PUT",
-      "URL": "/api/Chats/:userID/:chatID",
+      "URL": "/api/Chats/SendMsg/:userID/:chatID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
@@ -208,7 +208,7 @@
       "title": "Upload media to a chat",
       "description": "uploading media",
       "method": "POST",
-      "URL": "/api/Messages",
+      "URL": "/api/chats/UploadChatMedia",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
@@ -255,7 +255,7 @@
       "title": "Getting all notifications",
       "description": "retrieving all notification for a user",
       "method": "Get",
-      "URL": "/api/userNotifications/:userID",
+      "URL": "/api/notifications/GetNotifications/:userID",
       "headers": {
         "Content-Type": "application/json",
         "Authorization": "Token"
@@ -294,7 +294,7 @@
       "title":"Assign task to collaborator",
       "description":"Assigning task to collaborator",
       "method":"Post",
-      "URL":"/api/tasks/assign",
+      "URL":"/api/tasks/AssignTask",
       "headers":{
          "Content-Type":"application/json",
          "Authorization":"Token"
@@ -326,7 +326,7 @@
       "title":"Search for Task",
       "description":"Searching for Task across all boards and lists",
       "method":"Get",
-      "URL":"/api/tasks/search?query=description",
+      "URL":"/api/tasks/SearchTask?query=description",
       "headers":{
          "Content-Type":"application/json",
          "Authorization":"Token"
@@ -363,7 +363,7 @@
       "title":"Add task comment",
       "description":"Adding comment to task",
       "method":"Post",
-      "URL":"/api/task/comment",
+      "URL":"/api/tasks/AddTaskComment",
       "headers":{
          "Content-Type":"application/json",
          "Authorization":"Token"
@@ -395,7 +395,7 @@
       "title":"Add board comment",
       "description":"Adding comment to board ",
       "method":"Post",
-      "URL":"/api/board/comments",
+      "URL":"/api/tasks/AddBoardComment",
       "headers":{
          "Content-Type":"application/json",
          "Authorization":"Token"
@@ -427,7 +427,7 @@
       "title":"View tasks deadline",
       "description":"Viewing upcoming tasks deadline",
       "method":"Get",
-      "URL":"/api/upcomingtasks",
+      "URL":"/api/tasks/ViewUpcomingTasks",
       "headers":{
          "Content-Type":"application/json",
          "Authorization":"Token"
@@ -467,7 +467,7 @@
       "title":"Assign Name to Board",
       "description":"User assigns name to one of his boards",
       "method":"Put",
-      "URL":"api/board/assignName/:boardId",
+      "URL":"api/tasks/AssignBoardName/:boardId",
       "headers":{
          "Content-Type":"application/json",
          "Authorization":"Token"
@@ -503,7 +503,7 @@
       "title":"Assign Name to TodoList",
       "description":"User assigns name to one of his TodoLists",
       "method":"Put",
-      "URL":"api/todolist/assignName/:listId",
+      "URL":"api/tasks/AssignTodolistName/:listId",
       "headers":{
          "Content-Type":"application/json",
          "Authorization":"Token"
@@ -539,7 +539,7 @@
       "title":"Search for todolist by name",
       "description":"User searches for a todolist(s) by its name",
       "method":"Get",
-      "URL":"api/todolist?Name=value",
+      "URL":"api/tasks/SearchTodolist?name=value",
       "headers":{
          "Content-Type":"application/json",
          "Authorization":"Token"
@@ -576,7 +576,7 @@
       "title":"Search for board by name",
       "description":"User searches for a board by its name",
       "method":"Get",
-      "URL":"api/board?Name=value",
+      "URL":"api/tasks/SearchBoard?Name=value",
       "headers":{
          "Content-Type":"application/json",
          "Authorization":"Token"

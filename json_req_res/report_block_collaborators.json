@@ -2,6 +2,7 @@
     
         "serviceName": "reportUsers",
         "method": "POST",
+        "URL": "/api/reports/ReportUser",
         "body": {
           "id": "",
           "idToBeReported": "",
@@ -24,6 +25,7 @@
       {
         "serviceName": "blockUsers",
         "method": "POST",
+        "URL": "/api/reports/BlockUser",
         "body": {
           "id": "",
           "collaboratorId": "",

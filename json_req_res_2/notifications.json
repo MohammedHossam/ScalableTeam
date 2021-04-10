@@ -1,0 +1,42 @@
+{
+  "NotificationsApi":[
+    {
+      "title": "Getting all notifications",
+      "description": "retrieving all notification for a user",
+      "method": "Get",
+      "URL": "/api/notifications/GetNotifications/:userID",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token"
+      },
+      "body": {},
+      "responses": [
+        {
+          "status": 200,
+          "descripition": "OK",
+          "schema": {
+            "type": "Array",
+            "items": [
+              {
+                "type": "Object",
+                "ref": "Collections/userNotifications"
+              }
+            ]
+          }
+        },
+        {
+          "status": 401,
+          "descripition": "Unauthorized"
+        },
+        {
+          "status": 403,
+          "descripition": "Forbidden"
+        },
+        {
+          "status": 404,
+          "descripition": "Not Found"
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
             "title": "Add Task To The TodoList/Board",
             "description": "Adding Task To The TodoList Or the Board",
             "method": "POST",
-            "URL": "/api/tasks",
+            "URL": "/api/tasks/AddTask",
             "headers": [
                 {
                     "key": "Content-Type",
@@ -76,7 +76,7 @@
             "title": "Add Sub Task To The Task",
             "description": "Adding SubTasks to the Task",
             "method": "POST",
-            "URL": "/api/tasks/subtasks",
+            "URL": "/api/tasks/AddSubTask",
             "headers": [
                 {
                     "key": "Content-Type",
@@ -130,7 +130,7 @@
             "title": "Create Board",
             "description": "Creating Board that contains discussions, sections, tasks and subtasks",
             "method": "POST",
-            "URL": "/api/boards",
+            "URL": "/api/tasks/AddBoard",
             "headers": [
                 {
                     "key": "Content-Type",
@@ -194,7 +194,7 @@
             "title": "Add Collaborator",
             "description": "Adding a User as Collaborator to the TodoList/Board",
             "method": "POST",
-            "URL": "/api/collaborators",
+            "URL": "/api/tasks/AddCollaborator",
             "headers": [
                 {
                     "key": "Content-Type",
@@ -261,7 +261,7 @@
             "title": "Toggle task status",
             "description": "Mark task as done/undone",
             "method": "PUT",
-            "URL": "/api/tasks/:id",
+            "URL": "/api/tasks/ToggleTaskStatus/:id",
             "headers": {
               "Content-Type": "application/json",
               "Authorization": "Token"
@@ -303,7 +303,7 @@
             "title": "Remove a Task",
             "description": "Removing a task from a board or a list",
             "method": "Delete",
-            "URL": "/api/tasks/:id",
+            "URL": "/api/tasks/RemoveTask/:id",
             "headers": {
               "Content-Type": "application/json",
               "Authorization": "Token"
@@ -335,7 +335,7 @@
             "title": "Change priority",
             "description": "Change the priority of a task",
             "method": "PUT",
-            "URL": "/api/tasks/:id",
+            "URL": "/api/tasks/ChangeTaskPriority/:id",
             "headers": {
               "Content-Type": "application/json",
               "Authorization": "Token"
@@ -377,7 +377,7 @@
             "title": "Change Due Date",
             "description": "Change the due date of a task",
             "method": "PUT",
-            "URL": "/api/tasks/:id",
+            "URL": "/api/tasks/ChangeTaskDueDate/:id",
             "headers": {
               "Content-Type": "application/json",
               "Authorization": "Token"
@@ -419,7 +419,7 @@
             "title": "Toggle subtask status",
             "description": "Mark a subtask as done/undone",
             "method": "PUT",
-            "URL": "/api/tasks/subtasks/:id",
+            "URL": "/api/tasks/ToggleSubTaskStatus/:id",
             "headers": {
               "Content-Type": "application/json",
               "Authorization": "Token"
@@ -461,7 +461,7 @@
             "title": "Remove a subtask",
             "description": "Removing a subtask from a board or a list",
             "method": "Delete",
-            "URL": "/api/tasks/subtasks/:id",
+            "URL": "/api/tasks/RemoveSubTask/:id",
             "headers": {
               "Content-Type": "application/json",
               "Authorization": "Token"
@@ -493,7 +493,7 @@
             "title": "Sort Tasks in a board",
             "description": "Sorting tasks depending on a certain key",
             "method": "Get",
-            "URL": "/api/board/tasks/sort/:boardID?sortingBy=value",
+            "URL": "/api/tasks/SortTasksInBoard/:boardID?sortingBy=value",
             "headers": {
               "Content-Type": "application/json",
               "Authorization": "Token"
@@ -531,7 +531,7 @@
             "title": "Sort Tasks in a todo list",
             "description": "Sorting tasks depending on a certain key",
             "method": "Get",
-            "URL": "/api/todolist/tasks/sort/:todolistID?sortingBy=value",
+            "URL": "/api/tasks/SortTasksInTodolist/:todolistID?sortingBy=value",
             "headers": {
               "Content-Type": "application/json",
               "Authorization": "Token"
@@ -569,7 +569,7 @@
             "title": "Upload media to board",
             "description": "Uploading media to board",
             "method": "POST",
-            "URL": "/api/Board/Media/Upload",
+            "URL": "/api/tasks/UploadBoardMedia",
             "headers": {
               "Content-Type": "application/json",
               "Authorization": "Token"
