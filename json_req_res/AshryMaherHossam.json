@@ -1,508 +1,493 @@
 {
-  "APIs": [
-    {
-      "title": "Add Task To The TodoList/Board",
-      "description": "Adding Task To The TodoList Or the Board",
-      "method": "POST",
-      "URL": "/api/tasks",
-      "headers": [
+    "APIs": [
         {
-          "key": "Content-Type",
-          "value": "application/json"
+            "title": "Add Task To The TodoList/Board",
+            "description": "Adding Task To The TodoList Or the Board",
+            "method": "POST",
+            "URL": "/api/tasks",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "key": "Authorization",
+                    "value": "Token"
+                }
+            ],
+            "body": {
+                "idTodoList": {
+                    "type": "String",
+                    "value": "String",
+                    "ref": "Collections/Todolist"
+                },
+                "idBoard": {
+                    "type": "String",
+                    "value": "String",
+                    "ref": "Collections/Board"
+                },
+                "idSection": {
+                    "type": "String",
+                    "value": "String",
+                    "ref": "Collections/Section"
+                },
+                "description": {
+                    "type": "String",
+                    "value": "String"
+                },
+                "priority": {
+                    "type": "Enum",
+                    "value": "H/M/L"
+                },
+                "dueDate": {
+                    "type": "Date",
+                    "value": "DD.MM.YYYY"
+                }
+            },
+            "responses": [
+                {
+                    "status": 200,
+                    "description": "OK",
+                    "schema": {
+                        "type": "Object",
+                        "items": {
+                            "type": "String",
+                            "value": "Created Task at the Todolist/Board with Id",
+                            "ref": "Collections/Task"
+                          }
+                    }
+                },
+                {
+                    "status": 401,
+                    "description": "Unauthorized"
+                },
+                {
+                    "status": 403,
+                    "description": "Forbidden"
+                },
+                {
+                    "status": 404,
+                    "description": "Not Found"
+                }
+            ]
         },
-        {
-          "key": "Authorization",
-          "value": "Token"
-        }
-      ],
-      "body": {
-        "idTodoList": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Todolist"
-        },
-        "idBoard": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Board"
-        },
-        "idSection": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Section"
-        },
-        "description": {
-          "type": "String",
-          "value": "String"
-        },
-        "priority": {
-          "type": "Enum",
-          "value": "H/M/L"
-        },
-        "dueDate": {
-          "type": "Date",
-          "value": "DD.MM.YYYY"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {
-            "type": "Object",
-            "items": {
-              "type": "String",
-              "value": "Created Task at the Todolist/Board with Id",
-              "ref": "Collections/Task"
-            }
-          }
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    },
 
-    {
-      "title": "Add Sub Task To The Task",
-      "description": "Adding SubTasks to the Task",
-      "method": "POST",
-      "URL": "/api/tasks/subtasks",
-      "headers": [
         {
-          "key": "Content-Type",
-          "value": "application/json"
+            "title": "Add Sub Task To The Task",
+            "description": "Adding SubTasks to the Task",
+            "method": "POST",
+            "URL": "/api/tasks/subtasks",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "key": "Authorization",
+                    "value": "Token"
+                }
+            ],
+            "body": {
+                "id": {
+                    "type": "String",
+                    "value": "String",
+                    "ref": "Collections/Task"
+                },
+                "description": {
+                  "type": "String",
+                  "value": "String"
+              }
+            },
+            "responses": [
+                {
+                    "status": 200,
+                    "description": "OK",
+                    "schema": {
+                        "type": "Object",
+                        "items": {
+                            "type": "String",
+                            "value": "Created Sub Task at the Task with Id",
+                            "ref": "Collections/Task"
+                          }
+                    }
+                },
+                {
+                    "status": 401,
+                    "description": "Unauthorized"
+                },
+                {
+                    "status": 403,
+                    "description": "Forbidden"
+                },
+                {
+                    "status": 404,
+                    "description": "Not Found"
+                }
+            ]
+        },
+        
+        {
+            "title": "Create Board",
+            "description": "Creating Board that contains discussions, sections, tasks and subtasks",
+            "method": "POST",
+            "URL": "/api/boards",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "key": "Authorization",
+                    "value": "Token"
+                }
+            ],
+            "body": {
+                "id": {
+                    "type": "String",
+                    "value": "String",
+                    "ref": "Collections/User"
+                },
+                "description": {
+                    "type": "String",
+                    "value": "String"
+                }
+                ,
+                "media": {
+                    "type": "multipart/form-data",
+                    "value": "Media Encoded"
+                }
+                ,
+                "name": {
+                    "type": "String",
+                    "value": "String"
+                }
+            },
+            "responses": [
+                {
+                    "status": 200,
+                    "description": "OK",
+                    "schema": {
+                        "type": "Object",
+                        "items": {
+                            "type": "String",
+                            "value": "Created Board with id ",
+                            "ref": "Collections/Board"
+                          }
+                    }
+                },
+                {
+                    "status": 401,
+                    "description": "Unauthorized"
+                },
+                {
+                    "status": 403,
+                    "description": "Forbidden"
+                },
+                {
+                    "status": 404,
+                    "description": "Not Found"
+                }
+            ]
+        },
+        
+        {
+            "title": "Add Collaborator",
+            "description": "Adding a User as Collaborator to the TodoList/Board",
+            "method": "POST",
+            "URL": "/api/collaborators",
+            "headers": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "key": "Authorization",
+                    "value": "Token"
+                }
+            ],
+            "body": {
+                "idUser": {
+                    "type": "String",
+                    "value": "String",
+                    "ref": "Collections/User"
+                },
+                "idTodoList": {
+                    "type": "String",
+                    "value": "String",
+                    "ref": "Collections/Todolist"
+                }
+                ,
+                "idBoard": {
+                    "type": "String",
+                    "value": "String",
+                    "ref": "Collections/Board"
+                }
+                ,
+                "idTask": {
+                    "type": "String",
+                    "value": "String",
+                    "ref": "Collections/Task"
+                }
+                
+            },
+            "responses": [
+                {
+                    "status": 200,
+                    "description": "OK",
+                    "schema": {
+                        "type": "Object",
+                        "items": {
+                            "type": "String",
+                            "value": "Collaborator id",
+                            "ref": "Collections/Collaborator"
+                          }
+                    }
+                },
+                {
+                    "status": 401,
+                    "description": "Unauthorized"
+                },
+                {
+                    "status": 403,
+                    "description": "Forbidden"
+                },
+                {
+                    "status": 404,
+                    "description": "Not Found"
+                }
+            ]
         },
         {
-          "key": "Authorization",
-          "value": "Token"
-        }
-      ],
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Task"
-        },
-        "description": {
-          "type": "String",
-          "value": "String"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {
-            "type": "Object",
-            "items": {
-              "type": "String",
-              "value": "Created Sub Task at the Task with Id",
-              "ref": "Collections/Task"
+            "title": "Toggle task status",
+            "description": "Mark task as done/undone",
+            "method": "PUT",
+            "URL": "/api/tasks/:id",
+            "headers": {
+              "Content-Type": "application/json",
+              "Authorization": "Token"
+            },
+            "body": {
+              "status": {
+                "type": "Boolean",
+                "value": "True"
+              }
+            },
+            "responses": [
+              {
+                "status": 200,
+                "description": "OK",
+                "schema": {
+                  "type": "Object",
+                  "items": {
+                    "type": "String",
+                    "value": "Task ID",
+                    "ref": "Collections/Task"
+                  }
+                }
+              },
+              {
+                "status": 401,
+                "description": "Unauthorized"
+              },
+              {
+                "status": 403,
+                "description": "Forbidden"
+              },
+              {
+                "status": 404,
+                "description": "Not Found"
+              }
+            ]
+          },
+          {
+            "title": "Remove a Task",
+            "description": "Removing a task from a board or a list",
+            "method": "Delete",
+            "URL": "/api/tasks/:id",
+            "headers": {
+              "Content-Type": "application/json",
+              "Authorization": "Token"
+            },
+            "body": {
+            },
+            "responses": [
+              {
+                "status": 200,
+                "description": "OK",
+                "schema": {
+                }
+              },
+              {
+                "status": 401,
+                "description": "Unauthorized"
+              },
+              {
+                "status": 403,
+                "description": "Forbidden"
+              },
+              {
+                "status": 404,
+                "description": "Not Found"
+              }
+            ]
+          },
+          {
+            "title": "Change priority",
+            "description": "Change the priority of a task",
+            "method": "PUT",
+            "URL": "/api/tasks/:id",
+            "headers": {
+              "Content-Type": "application/json",
+              "Authorization": "Token"
+            },
+            "body": {
+              "priority":{
+                "type": "Enum",
+                "value": "H/M/L or whatever we decide"
+              }
+            },
+            "responses": [
+              {
+                "status": 200,
+                "description": "OK",
+                "schema": {
+                  "type": "Object",
+                  "items": {
+                    "type": "String",
+                    "value": "Task ID",
+                    "ref": "Collections/Task"
+                  }
+                }
+              },
+              {
+                "status": 401,
+                "description": "Unauthorized"
+              },
+              {
+                "status": 403,
+                "description": "Forbidden"
+              },
+              {
+                "status": 404,
+                "description": "Not Found"
+              }
+            ]
+          },
+          {
+            "title": "Change Due Date",
+            "description": "Change the due date of a task",
+            "method": "PUT",
+            "URL": "/api/tasks/:id",
+            "headers": {
+              "Content-Type": "application/json",
+              "Authorization": "Token"
+            },
+            "body": {
+              "dueDate": {
+                "type": "Date",
+                "value": "DD.MM.YYYY"
             }
+            },
+            "responses": [
+              {
+                "status": 200,
+                "description": "OK",
+                "schema": {
+                  "type": "Object",
+                  "items": {
+                    "type": "String",
+                    "value": "Task ID",
+                    "ref": "Collections/Task"
+                  }
+                }
+              },
+              {
+                "status": 401,
+                "description": "Unauthorized"
+              },
+              {
+                "status": 403,
+                "description": "Forbidden"
+              },
+              {
+                "status": 404,
+                "description": "Not Found"
+              }
+            ]
+          },
+          {
+            "title": "Toggle subtask status",
+            "description": "Mark a subtask as done/undone",
+            "method": "PUT",
+            "URL": "/api/tasks/subtasks/:id",
+            "headers": {
+              "Content-Type": "application/json",
+              "Authorization": "Token"
+            },
+            "body": {
+              "status": {
+                "type": "Boolean",
+                "value": "True"
+              }
+            },
+            "responses": [
+              {
+                "status": 200,
+                "description": "OK",
+                "schema": {
+                  "type": "Object",
+                  "items": {
+                    "type": "String",
+                    "value": "Subtask ID",
+                    "ref": "Collections/Subtask"
+                  }
+                }
+              },
+              {
+                "status": 401,
+                "description": "Unauthorized"
+              },
+              {
+                "status": 403,
+                "description": "Forbidden"
+              },
+              {
+                "status": 404,
+                "description": "Not Found"
+              }
+            ]
+          },
+          {
+            "title": "Remove a subtask",
+            "description": "Removing a subtask from a board or a list",
+            "method": "Delete",
+            "URL": "/api/tasks/subtasks/:id",
+            "headers": {
+              "Content-Type": "application/json",
+              "Authorization": "Token"
+            },
+            "body": {
+            },
+            "responses": [
+              {
+                "status": 200,
+                "description": "OK",
+                "schema": {
+                }
+              },
+              {
+                "status": 401,
+                "description": "Unauthorized"
+              },
+              {
+                "status": 403,
+                "description": "Forbidden"
+              },
+              {
+                "status": 404,
+                "description": "Not Found"
+              }
+            ]
           }
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    },
-
-    {
-      "title": "Create Board",
-      "description": "Creating Board that contains discussions, sections, tasks and subtasks",
-      "method": "POST",
-      "URL": "/api/boards",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/json"
-        },
-        {
-          "key": "Authorization",
-          "value": "Token"
-        }
-      ],
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/User"
-        },
-        "description": {
-          "type": "String",
-          "value": "String"
-        },
-        "media": {
-          "type": "multipart/form-data",
-          "value": "Media Encoded"
-        },
-        "name": {
-          "type": "String",
-          "value": "String"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {
-            "type": "Object",
-            "items": {
-              "type": "String",
-              "value": "Created Board with id ",
-              "ref": "Collections/Board"
-            }
-          }
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    },
-
-    {
-      "title": "Add Collaborator",
-      "description": "Adding a User as Collaborator to the TodoList/Board",
-      "method": "POST",
-      "URL": "/api/collaborators",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/json"
-        },
-        {
-          "key": "Authorization",
-          "value": "Token"
-        }
-      ],
-      "body": {
-        "idUser": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/User"
-        },
-        "idTodoList": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Todolist"
-        },
-        "idBoard": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Board"
-        },
-        "idTask": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Task"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {
-            "type": "Object",
-            "items": {
-              "type": "String",
-              "value": "Collaborator id",
-              "ref": "Collections/Collaborator"
-            }
-          }
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    },
-    {
-      "title": "Toggle task status",
-      "description": "Mark task as done/undone",
-      "method": "PUT",
-      "URL": "/api/tasks/",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Token"
-      },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Task"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {
-            "type": "Object",
-            "items": {
-              "type": "String",
-              "value": "Task ID",
-              "ref": "Collections/Task"
-            }
-          }
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    },
-    {
-      "title": "Remove a Task",
-      "description": "Removing a task from a board or a list",
-      "method": "Delete",
-      "URL": "/api/tasks",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Token"
-      },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Task"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {}
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    },
-    {
-      "title": "Change priority",
-      "description": "Change the priority of a task",
-      "method": "PUT",
-      "URL": "/api/tasks/",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Token"
-      },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Task"
-        },
-        "priority": {
-          "type": "Enum",
-          "value": "H/M/L or whatever we decide"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {
-            "type": "Object",
-            "items": {
-              "type": "String",
-              "value": "Task ID",
-              "ref": "Collections/Task"
-            }
-          }
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    },
-    {
-      "title": "Change Due Date",
-      "description": "Change the due date of a task",
-      "method": "PUT",
-      "URL": "/api/tasks/",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Token"
-      },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Task"
-        },
-        "dueDate": {
-          "type": "Date",
-          "value": "DD.MM.YYYY"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {
-            "type": "Object",
-            "items": {
-              "type": "String",
-              "value": "Task ID",
-              "ref": "Collections/Task"
-            }
-          }
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    },
-    {
-      "title": "Toggle subtask status",
-      "description": "Mark a subtask as done/undone",
-      "method": "PUT",
-      "URL": "/api/tasks/subtasks",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Token"
-      },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Subtask"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {
-            "type": "Object",
-            "items": {
-              "type": "String",
-              "value": "Subtask ID",
-              "ref": "Collections/Subtask"
-            }
-          }
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    },
-    {
-      "title": "Remove a subtask",
-      "description": "Removing a subtask from a board or a list",
-      "method": "Delete",
-      "URL": "/api/tasks/subtasks",
-      "headers": {
-        "Content-Type": "application/json",
-        "Authorization": "Token"
-      },
-      "body": {
-        "id": {
-          "type": "String",
-          "value": "String",
-          "ref": "Collections/Subtask"
-        }
-      },
-      "responses": [
-        {
-          "status": 200,
-          "description": "OK",
-          "schema": {}
-        },
-        {
-          "status": 401,
-          "description": "Unauthorized"
-        },
-        {
-          "status": 403,
-          "description": "Forbidden"
-        },
-        {
-          "status": 404,
-          "description": "Not Found"
-        }
-      ]
-    }
-  ]
+    ]
 }
