@@ -1,0 +1,255 @@
+
+{
+  "ChatAPI": [
+    {
+      "title": "Get all chats",
+      "description": "getting all the chats for the logged in user",
+      "method": "Get",
+      "URL": "/api/chats/GetChats/:userID",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token"
+      },
+      "body": {},
+      "responses": [
+        {
+          "status": 200,
+          "descripition": "OK",
+          "schema": {
+            "type": "Array",
+            "items": [
+              {
+                "type": "Object",
+                "ref": "Collections/Chats"
+              }
+            ]
+          }
+        },
+        {
+          "status": 401,
+          "descripition": "Unauthorized"
+        },
+        {
+          "status": 403,
+          "descripition": "Forbidden"
+        },
+        {
+          "status": 404,
+          "descripition": "Not Found"
+        }
+      ]
+    },
+    {
+      "title": "Open a chat",
+      "description": "getting one chat for the logged in user",
+      "method": "Get",
+      "URL": "/api/chats/GetChat/:userID/:chatID",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token"
+      },
+      "body": {},
+      "responses": [
+        {
+          "status": 200,
+          "descripition": "OK",
+          "schema": {
+            "type": "Array",
+            "items": [
+              {
+                "type": "Object",
+                "ref": "Collections/Messages"
+              }
+            ]
+          }
+        },
+        {
+          "status": 401,
+          "descripition": "Unauthorized"
+        },
+        {
+          "status": 403,
+          "descripition": "Forbidden"
+        },
+        {
+          "status": 404,
+          "descripition": "Not Found"
+        }
+      ]
+    },
+    {
+      "title": "Delete a chat",
+      "description": "deleting one chat for the logged in user",
+      "method": "Delete",
+      "URL": "/api/chats/DeleteChat/:userID/:chatID",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token"
+      },
+      "body": {},
+      "responses": [
+        {
+          "status": 200,
+          "descripition": "OK",
+          "schema": {
+            "type": "Array",
+            "items": [
+              {
+                "type": "Object",
+                "ref": "Collections/Messages"
+              }
+            ]
+          }
+        },
+        {
+          "status": 401,
+          "descripition": "Unauthorized"
+        },
+        {
+          "status": 403,
+          "descripition": "Forbidden"
+        },
+        {
+          "status": 404,
+          "descripition": "Not Found"
+        }
+      ]
+    },
+    {
+      "title": "Create a chat",
+      "description": "Opening a new chat for the logged in user with another user",
+      "method": "POST",
+      "URL": "/api/chats/CreateChat",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token"
+      },
+      "body": {
+        "id": {
+          "type": "String",
+          "value": "String",
+          "ref": "Collections/User"
+        },
+        "id2": {
+          "type": "String",
+          "value": "String",
+          "ref": "Collections/User"
+        }
+      },
+      "responses": [
+        {
+          "status": 201,
+          "descripition": "OK",
+          "schema": {
+            "type": "Object",
+            "items": {
+              "type": "String",
+              "value": "Created chat id",
+              "ref": "Collections/Chat"
+            }
+          }
+        },
+        {
+          "status": 401,
+          "descripition": "Unauthorized"
+        },
+        {
+          "status": 403,
+          "descripition": "Forbidden"
+        },
+        {
+          "status": 404,
+          "descripition": "Not Found"
+        }
+      ]
+    },
+    {
+      "title": "Send a message",
+      "description": "sending one message in the opened chat",
+      "method": "PUT",
+      "URL": "/api/Chats/SendMsg/:userID/:chatID",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token"
+      },
+      "body": {
+        "message": {
+          "type": "Object",
+          "value": "the contents of the message"
+        }
+      },
+      "responses": [
+        {
+          "status": 200,
+          "descripition": "OK",
+          "schema": {
+            "type": "Object",
+            "items": {
+              "type": "Object",
+              "ref": "Collections/Messages"
+            }
+          }
+        },
+        {
+          "status": 401,
+          "descripition": "Unauthorized"
+        },
+        {
+          "status": 403,
+          "descripition": "Forbidden"
+        },
+        {
+          "status": 404,
+          "descripition": "Not Found"
+        }
+      ]
+    },
+    {
+      "title": "Upload media to a chat",
+      "description": "uploading media",
+      "method": "POST",
+      "URL": "/api/chats/UploadChatMedia",
+      "headers": {
+        "Content-Type": "application/json",
+        "Authorization": "Token"
+      },
+      "body": {
+        "id": {
+          "type": "String",
+          "value": "String",
+          "ref": "Collections/User"
+        },
+        "chatId": {
+          "type": "String",
+          "value": "String",
+          "ref": "Collections/Chat"
+        }
+      },
+      "responses": [
+        {
+          "status": 201,
+          "descripition": "OK",
+          "schema": {
+            "type": "Object",
+            "items": {
+              "type": "String",
+              "value": "encoded media"
+            }
+          }
+        },
+        {
+          "status": 401,
+          "descripition": "Unauthorized"
+        },
+        {
+          "status": 403,
+          "descripition": "Forbidden"
+        },
+        {
+          "status": 404,
+          "descripition": "Not Found"
+        }
+      ]
+    }
+  ]
+}

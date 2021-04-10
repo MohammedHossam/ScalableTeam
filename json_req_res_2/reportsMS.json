@@ -1,0 +1,45 @@
+{
+  "ReportsAPI":[{
+    
+  "serviceName": "reportUsers",
+  "method": "POST",
+  "URL": "/api/reports/ReportUser",
+  "body": {
+    "id": "",
+    "idToBeReported": "",
+    "report": "",
+    "boardId": ""
+    
+  },
+  "headers": {
+    "key": "Authentication",
+    "value": "token"
+  },
+  "successResponse": {
+    "statusCode": 200
+  },
+  "errorResponse": {
+    "statusCode": "",
+    "error": ""
+  }
+},
+{
+  "serviceName": "blockUsers",
+  "method": "POST",
+  "URL": "/api/reports/BlockUser",
+  "body": {
+    "id": "",
+    "collaboratorId": "",
+    "boardId": ""
+  },
+  "headers": {
+    "key": "Authentication",
+    "value": "token"
+  },
+  "successResponse": {
+    "statusCode": 200
+  },
+  "errorResponse": {
+    "statusCode": "",
+    "error": ""
+}}]}
